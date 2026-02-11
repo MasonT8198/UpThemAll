@@ -24,7 +24,6 @@ jobs:
           cd libnx
           make -j8
           make install
-          popd
 
       - name: Build
         run: make -j8
