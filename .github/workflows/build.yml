@@ -20,16 +20,14 @@ jobs:
 
       - name: Install latest libnx (before building)
         run: |
-          pushd /tmp
           git clone https://github.com/switchbrew/libnx
           cd libnx
-          make clean
-          make -j8 PREFIX="ccache aarch64-none-elf-"
+          make -j8
           make install
           popd
 
       - name: Build
-        run: make -j8 PREFIX="ccache aarch64-none-elf-"
+        run: make -j8
 
       - name: Upload built files
         uses: actions/upload-artifact@v6
